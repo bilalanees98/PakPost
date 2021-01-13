@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Non-stamped Shipment</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+/* Header/logo Title */
+.header {
+  padding: 80px;
+  text-align: center;
+  background: #3FA512;
+  color: white;
+}
+
+/* Increase the font size of the heading */
+.header h1 {
+  font-size: 40px;
+}
+
+/* Sticky navbar - toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed). The sticky value is not supported in IE or Edge 15 and earlier versions. However, for these versions the navbar will inherit default position */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+
+/* Right-aligned link */
+.navbar a.right {
+  float: right;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Active/current link */
+.navbar a.active {
+  background-color: #666;
+  color: white;
+}
+
+/* Column container */
+.row {  
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+  -ms-flex: 30%; /* IE10 */
+  flex: 30%;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+/* Main column */
+.main {   
+  -ms-flex: 70%; /* IE10 */
+  flex: 70%;
+  background-color: white;
+  padding: 20px;
+}
+
+/* Fake image, just for this example */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: left;
+  background: #ddd;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Non-Stamped Shipment</h1>
+  <p></p>
+</div>
+
+<div class="navbar">
+	<a href="First_Page.php">Home</a> 
+	<a href="loginPage.html" class = 'right'>Logout</a>  
+</div>
+
+<div class="row">
+  <div class="main">
+  </div>
+</div>
+
+<div class="footer">
+	<form name = "nonstampedShipment" action = "action.php" method = "POST">
+	<table>
+		<tr>
+			<td>
+			<label>Type: </label>
+			</td>
+			<td>
+			<select name = "mailType">
+					<option value='1' >Paper</option>
+					<option value='2' >Parcel</option>
+				
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<label>Weight(g): </label>
+			
+			</td>
+			<td>
+			<input type="number" name="weight">
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<label>Urgency: </label>
+			
+			</td>
+			<td>
+				<select name = "urgency">
+				
+					<option value='Regular'>Regular</option>
+					<option value='Same day'>Same day</option>
+					<option value='Urgent'>Urgent</option>
+				
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<label>Description: </label>
+			
+			</td>
+			<td>
+			<input type="text" name="desc">
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<label>Insurance: </label>
+			
+			</td>
+			<td>
+				<select name = "iType">
+					<option value="01">None</option>
+					<option value="02">quarter</option>	
+					<option value="03">half</option>
+					<option value="04">full</option>
+				</select>
+			</td>
+		</tr>	
+		
+	</table>
+ 
+	<h4>Receiver Info</h4>
+	
+	<table>
+		<tr>
+			<td>
+				<label>Name: </label>
+			</td>
+			
+			<td>
+				<input type="text" name="receiverName">
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+				<label>Address: </label>
+			</td>
+			
+			<td>
+				<input type="text" name="recAddress">
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+				<label>Tel#: </label>
+			</td>
+			
+			<td>
+				<input type="number" name="recTel">
+			</td>
+		</tr>
+		
+	</table>
+ 
+	
+	<tr>
+			<td>
+				<input type="submit" value="Add New Shipment" name= "newShipment" id="newShipment">
+			    <input type="submit" value= "Close order" id = "closeorder" name = "closeorder">				
+
+			
+			</td>
+	</tr>
+	
+ 
+</form>
+
+  
+  
+</div>
+
+</body>
+</html>
+
+
